@@ -1,0 +1,20 @@
+require('./config/config');
+require('./models/db');
+adminRoute = require('./api/routes/admin/admin');
+userRoute = require('./api/routes/user/user');
+var errHandler = require('./config/err');
+var express = require('express');
+var app = express();
+var cors = require('cors');
+var bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+app.use(cors());
+app.listen(process.env.PORT,()=>{
+    console.log("server starts at port ",process.env.PORT);
+});
+app.use('/admin',adminRoute);
+app.use('/user',userRoute);
+app.use(errHandler.one);
+app.use(errHandler.two);
+app.use(errHandler.three);

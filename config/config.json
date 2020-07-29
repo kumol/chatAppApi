@@ -1,0 +1,12 @@
+{
+    "development":{
+        "PORT":3000,
+        "MONGODB_URI" : "mongodb://kumol:kumol254@ds147566.mlab.com:47566/ecommerse",
+        "JWT_SECRET" : "secret"
+    },
+    "porduction":{
+        "PORT":80,
+        "MONGODB_URI" : "mongodb://kumol:kumol254@ds147566.mlab.com:47566/ecommerse",
+        "JWT_SECRET" : "secret"
+    }
+}
