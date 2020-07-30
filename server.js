@@ -15,6 +15,7 @@ server.listen(process.env.PORT,()=>{
 })
 var cors = require('cors');
 var bodyParser = require('body-parser');
+
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 app.use(cors());
@@ -34,7 +35,7 @@ io.on('connection',(socket)=>{
         io.to(user.room).emit("message",{user:user.name,text:message});
         callback();
     })
-    
+
 
     socket.on("disconnect",()=>{
         console.log("User had left!!!");
